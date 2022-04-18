@@ -3,24 +3,27 @@ import re
 
 import pandas as pd
 
-import config
+import src.config as config
 
 
 def interim(
     subset: str = "train",
-    interim_dir: str = os.path.join("../", config.INTERIM_DIR),
+    raw_dir: str = config.RAW_DIR,
+    interim_dir: str = config.INTERIM_DIR,
 ) -> pd.DataFrame:
     """
     Extract all elements from text files to prepare a .csv file with the question, its corresponding answer,
     and the image it's referring to
 
     :param subset: Subset of all data to prepare
+    :param raw_dir: Directory from which to extract raw data
     :param interim_dir: Directory in which to save interim data
     :return: DataFrame for prepared dataset
     """
-    qa_lines = open(
-        os.path.join("../", config.RAW_DIR, f"{subset}_qa.txt")
-    ).readlines()
+    if not os.path.isdir(interim_dir):
+        os.system("mkdir -p " + config.INTERIM_DIR)
+
+    qa_lines = open(os.path.join(raw_dir, f"{subset}_qa.txt")).readlines()
     questions = qa_lines[::2]
     answers = qa_lines[1::2]
 
