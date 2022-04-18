@@ -20,7 +20,7 @@ install:
   - conda info -a
 
   - conda env update
-  - conda activate boilerplate
+  - conda activate interpretable-dl
   - python setup.py install
 script:
 #  - python -m pytest tests --cov=src --cov-fail-under=0

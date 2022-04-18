@@ -6,7 +6,7 @@ import pandas as pd
 import config
 
 
-def prepare_dataset(
+def interim(
     subset: str = "train",
     interim_dir: str = os.path.join("../", config.INTERIM_DIR),
 ) -> pd.DataFrame:
