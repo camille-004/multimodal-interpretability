@@ -1,0 +1,21 @@
+name: interpretable-dl
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - numpy
+  - pytest
+  - mypy
+  - pandas
+  - pre-commit
+  - scikit-learn
+  - click
+  - nbstripout
+  - flake8
+  - pytest-cov
+  - jupyter
+  - pre-commit-hooks
+  - jupyter_contrib_nbextensions
+  - black
+  - pytorch
+  - captum
